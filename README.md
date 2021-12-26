@@ -157,7 +157,7 @@ To get the local implementation of ExecuteFunction set up in your C# Azure Funct
 #### Configure PlayFab SDK to call local ExecuteFunction implementation
 To tell the PlayFab SDK to redirect ExecuteFunction API calls to your local implementation, you follow either of the following:
 
-* Add a file called playfab.local.settings.json to one of two places:
+* Using local file, Add a file called playfab.local.settings.json to one of two places:
 
     * The temporary directory on your machine
         * On Windows, this is the TEMP environment variable
@@ -185,7 +185,7 @@ To tell the PlayFab SDK to redirect ExecuteFunction API calls to your local impl
         (Note that the above steps will be done automatically through the PlayFab VS Code extension once it is released)
 
         When you would like to stop local redirects and make ExecuteFunction call the PlayFab API server, simply delete the playfab.local.settings.json file.
-* From the playfab Extension, Choose the Playfab Title, right click and select the Enable local debugging option.
+* Using playfab Extension, Choose the Playfab Title, right click and select the Enable local debugging option.
 
     ![Playfab Enable local debugging](.github/ScreenShot/playfab_enable_local_debugging.png)
 
@@ -245,7 +245,7 @@ The URL of your function will usually be in the format of
 
 `[function app name].azurewebsites.net/api/[function name]`.
 
-* Head over to the `Automation/Cloud Script/Functions` page in Game Manager.
+* Using browser, Head over to the `Automation/Cloud Script/Functions` page in Game Manager.
 
     ![Enable Azure Functions](.github/ScreenShot/Playfab_RegisterFunction.png)
 
@@ -254,7 +254,7 @@ The URL of your function will usually be in the format of
 
     ![Register Function Page](.github/ScreenShot/RegisterFunction.png)
 
-* From the playfab Extension, Choose the Playfab Title, right click and select the Enable local debugging option.
+* Using playfab Extension, Choose the Playfab Title, right click and select the Enable local debugging option.
 
     ![Playfab Enable local debugging](.github/ScreenShot/Playfab_RegisterFunction_Extension.png)
 
