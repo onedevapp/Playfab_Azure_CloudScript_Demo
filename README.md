@@ -29,7 +29,7 @@ After installation, select the Azure icon on the Activity bar. You should see an
 
 ![Azure Functions SignIn](.github/ScreenShot/AzureFunctionsExtensionSignIn.png)
 
-#### Create an Azure Functions project
+## Create an Azure Functions project
 The Functions extension lets you create a function app project, along with your first function. The following steps show how to create a new Functions project.
 
 1. From Azure Functions, select the Create Function Project icon:
@@ -89,7 +89,7 @@ The Functions extension lets you create a function app project, along with your 
     
     :warning: **It is important to assign your PlayFab Developer Secret Key and Title ID on these settings or else the Functions in this app will not work.**
 
-#### Create an Azure Functions
+## Create an Azure Functions
 The Functions extension lets you create a function. The following steps show how to create an HTTP-triggered function in a new Functions project. HTTP trigger is the simplest function trigger template to demonstrate.
 
 1. From Azure Functions, select the Create Function icon:
@@ -140,7 +140,7 @@ After installation, select the Playfab icon on the Activity bar. You should see 
 
 ![Playfab SignIn](.github/ScreenShot/PlayfabExtensionSignIn.png)
 
-### Local debugging for Cloudscript using Azure Functions
+## Local debugging for Cloudscript using Azure Functions
 There are certain steps that we will cover here exclusively for VS Code.
 
 #### For C# Azure Functions apps
@@ -154,7 +154,7 @@ To get the local implementation of ExecuteFunction set up in your C# Azure Funct
 
 
 
-#### Configure PlayFab SDK to call local ExecuteFunction implementation
+### Configure PlayFab SDK to call local ExecuteFunction implementation
 To tell the PlayFab SDK to redirect ExecuteFunction API calls to your local implementation, you follow either of the following:
 
 * Using local file, Add a file called playfab.local.settings.json to one of two places:
@@ -207,11 +207,11 @@ At this point, we can try different tests with the URL path that is shown. Every
 :warning: **Note: So far we have neither published to Azure Functions not registered these functions to Playfab Functions**.
 
 
-### Build and deploy
+## Build and deploy
 
 You can now perform a build by pressing `Ctrl+Shift+B` or entering `dotnet clean` followed by a `dotnet-build` in the terminal.
 
-#### Setup on Azure Function
+### Setup on Azure Function
 
 The Functions App is now ready to be run locally (`F5`) or deployed to Azure from the VS Code extension. To deploy, follow these steps:
 1. Go to the Azure Functions Extension (`Ctrl+Shift+A`)
@@ -232,7 +232,7 @@ You can easily get the URL of any of these functions to register with PlayFab la
 
 You can also upload all local application settings set in `local.settings.json` from here by right clicking the `Application Settings` tab of your Azure Functions App, click `Upload Local Settings`, and select the `local.settings.json` file in the local folder of this app. **Note that this will overwrite remote settings that are different locally, as well as ignore all settings that are the same or do not exist locally but exist remotely**.
 
-#### Setup on PlayFab
+### Setup on PlayFab
 
 
 #### Register Your First Azure Function with PlayFab
@@ -270,7 +270,7 @@ The setup process is now complete and you can proceed to deploy and register all
 
 </br>
 
-### Here are some highlights for Playfab Azure Functions.
+#### Here are some highlights for Playfab Azure Functions.
 
 [The PlayFab Cloud Script Plugin](https://github.com/PlayFab/PlayFab-Samples/tree/master/Samples/CSharp/AzureFunctions/TicTacToeFunctions#the-playfab-cloud-script-plugin) - This plugin is recommended to be added to all Azure Functions apps meant to be used with PlayFab
 
