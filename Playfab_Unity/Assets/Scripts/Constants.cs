@@ -12,5 +12,6 @@ public class Constants
 
 
     // Function names
-    public const string RESET_GAME_STATE_FUNCTION_NAME = "ResetGameState";
+    public const string HELLOWORLD_FUNCTION_NAME = "HelloWorld";
+    public const string UPDATELEADERBOARD_FUNCTION_NAME = "UpdateLeaderboard";
 }

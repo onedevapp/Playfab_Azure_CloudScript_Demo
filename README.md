@@ -124,8 +124,7 @@ At this point, you can add input and output bindings to your function. You can a
 ![Add Nuget Package](.github/ScreenShot/NuGetAddPackageSelection.png)
 
 2. Search for "PlayFab", select `PlayFabAllSDK`, and add the latest version.
-3. Similarly, search for "PlayFab", select `PlayFabCloudScriptPlugin`, and add the latest version.
-4. A pop-up should appear on your screen stating that there are unresolved dependencies. Click `Restore`.
+3. A pop-up should appear on your screen stating that there are unresolved dependencies. Click `Restore`.
 
 ![Unresolved Dependencies Popup](.github/ScreenShot/UnresolvedDependencies.png)
 
@@ -230,7 +229,15 @@ Once the deployment is completed, you will be able to see your functions under t
 
 You can easily get the URL of any of these functions to register with PlayFab later (explained below) by right clicking the function and selecting `Copy Function URL`.
 
-You can also upload all local application settings set in `local.settings.json` from here by right clicking the `Application Settings` tab of your Azure Functions App, click `Upload Local Settings`, and select the `local.settings.json` file in the local folder of this app. **Note that this will overwrite remote settings that are different locally, as well as ignore all settings that are the same or do not exist locally but exist remotely**.
+#### Application Settings Configuration
+
+* Using playfab Extension, can upload all local application settings set in `local.settings.json` from here by right clicking the `Application Settings` tab of your Azure Functions App, click `Upload Local Settings`, and select the `local.settings.json` file in the local folder of this app. **Note that this will overwrite remote settings that are different locally, as well as ignore all settings that are the same or do not exist locally but exist remotely**.
+
+* Using Portal, head over to the Overview page and click on "Configuration". This is where you will be adding your PlayFab Title ID and PlayFab Developer Secret Key to the application settings so your functions can fetch them through the environment once deployed.
+    
+    ![Application Settings Configuration](.github/ScreenShot/config_app_settings.png)
+
+**It is important to assign your PlayFab Developer Secret Key and Title ID on these settings or else the Functions in this app will not work.**
 
 ### Setup on PlayFab
 
@@ -245,7 +252,7 @@ The URL of your function will usually be in the format of
 
 `[function app name].azurewebsites.net/api/[function name]`.
 
-* Using browser, Head over to the `Automation/Cloud Script/Functions` page in Game Manager.
+* Using Portal, Head over to the `Automation/Cloud Script/Functions` page in Game Manager.
 
     ![Enable Azure Functions](.github/ScreenShot/Playfab_RegisterFunction.png)
 
@@ -270,8 +277,15 @@ The setup process is now complete and you can proceed to deploy and register all
 
 </br>
 
-#### Here are some highlights for Playfab Azure Functions.
+#### References Links:
+*   [Azure Functions HTTP trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp)
+*   [Azure Functions University](https://github.com/marcduiker/azure-functions-university)
+*   [Writing a PlayFab CloudScript using Azure Functions](https://docs.microsoft.com/en-gb/gaming/playfab/features/automation/cloudscript-af/quickstart)
+*   [Source (PlayFabServerInstanceAPI.cs)](https://github.com/PlayFab/CSharpSDK/blob/master/PlayFabSDK/source/PlayFabServerInstanceAPI.cs)
+*   [Local debugging for Cloudscript using Azure Functions](https://docs.microsoft.com/en-us/gaming/playfab/features/automation/cloudscript-af/local-debugging-for-cloudscript-using-azure-functions)
+*   [Playfab TicTacToe Sample (Outdated)](https://github.com/PlayFab/PlayFab-Samples/tree/master/Samples/CSharp/AzureFunctions/TicTacToeFunctions)
 
-[The PlayFab Cloud Script Plugin](https://github.com/PlayFab/PlayFab-Samples/tree/master/Samples/CSharp/AzureFunctions/TicTacToeFunctions#the-playfab-cloud-script-plugin) - This plugin is recommended to be added to all Azure Functions apps meant to be used with PlayFab
+</br>
 
-[Instance APIs](https://github.com/PlayFab/PlayFab-Samples/tree/master/Samples/CSharp/AzureFunctions/TicTacToeFunctions#instance-apis) - Strongly recommend using PlayFab Instance APIs over the static ones in Azure Functions
+#### Photon Webhooks
+*   [Photon Realtime Webhooks Azure Functions (Server-less) Sample](https://github.com/PhotonEngine/photon.realtime.webhooks.serverless)

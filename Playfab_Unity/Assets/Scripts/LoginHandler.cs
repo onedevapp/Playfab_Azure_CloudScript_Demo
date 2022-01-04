@@ -34,8 +34,8 @@ public class LoginHandler
             },
             (error) =>
             {
-                    // Provide error feedback to user in case of failure at login
-                    Debug.LogError("Could not login to PlayFab for Player.");
+                // Provide error feedback to user in case of failure at login
+                Debug.LogError("Could not login to PlayFab for Player.");
                 Debug.LogError($"Response code: {error.HttpCode}");
                 Debug.LogError($"Error details: {error.ErrorDetails}");
                 Debug.LogError($"Error message: {error.ErrorMessage}");

@@ -1,30 +1,35 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.CloudScriptModels;
+using UnityEngine.UI;
 
 public class DemoScript : MonoBehaviour
 {
     public PlayerInfo CurrentPlayer { get; private set; }
-    //This snippet assumes that your game client is already logged into PlayFab.
+    public Button onUpdateLeaderBoardBtn;
 
     private void Start()
     {
+        onUpdateLeaderBoardBtn.interactable = false;
+
         var loginHandler = new LoginHandler();
         loginHandler.Login(OnPlayerLogin, OnLoginFail);
+
+        onUpdateLeaderBoardBtn.onClick.AddListener(() =>
+        {
+            CallExecuteFunction(Constants.UPDATELEADERBOARD_FUNCTION_NAME, new Dictionary<string, object>());
+        });
     }
 
     private void UpdateGameStatus(string statusText)
     {
-        //GameStatusText.text = statusText;
         Debug.Log(statusText);
     }
 
     private void OnLoginFail()
     {
         UpdateGameStatus("Login failed");
-        //throw new Exception("Failed to login.");
     }
 
     private void OnPlayerLogin(PlayerInfo playerInfo)
@@ -34,12 +39,17 @@ public class DemoScript : MonoBehaviour
         // Store the player info
         CurrentPlayer = playerInfo;
 
-        // Start the game loop
-        //StartCoroutine(StartGameLoop());
-        CallCSharpExecuteFunction();
+        onUpdateLeaderBoardBtn.interactable = true;
+
+        onUpdateLeaderBoardBtn.onClick.AddListener(() =>
+        {
+            var fParams = new Dictionary<string, object>();
+            fParams.Add("inputValue", "Test");
+            CallExecuteFunction(Constants.HELLOWORLD_FUNCTION_NAME, fParams);
+        });
     }
 
-    private void CallCSharpExecuteFunction()
+    private void CallExecuteFunction(string functionName, Dictionary<string, object> fParams)
     {
         // Create the reset request
         var request = new ExecuteFunctionRequest()
@@ -49,8 +59,8 @@ public class DemoScript : MonoBehaviour
                 Id = PlayFabSettings.staticPlayer.EntityId, //Get this from when you logged in,
                 Type = PlayFabSettings.staticPlayer.EntityType, //Get this from when you logged in
             },
-            FunctionName = "HelloWorld", //This should be the name of your Azure Function that you created.
-            FunctionParameter = new Dictionary<string, object>() { { "inputValue", "Test" } }, //This is the data that you would want to pass into your function.
+            FunctionName = functionName, //This should be the name of your Azure Function that you created.
+            FunctionParameter = fParams, //This is the data that you would want to pass into your function.
             GeneratePlayStreamEvent = false, //Set this to true if you would like this call to show up in PlayStream
 
             AuthenticationContext = new PlayFabAuthenticationContext
