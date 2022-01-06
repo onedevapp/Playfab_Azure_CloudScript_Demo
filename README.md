@@ -233,9 +233,11 @@ You can easily get the URL of any of these functions to register with PlayFab la
 
 * Using playfab Extension, can upload all local application settings set in `local.settings.json` from here by right clicking the `Application Settings` tab of your Azure Functions App, click `Upload Local Settings`, and select the `local.settings.json` file in the local folder of this app. **Note that this will overwrite remote settings that are different locally, as well as ignore all settings that are the same or do not exist locally but exist remotely**.
 
+    ![Application Settings Configuration](.github/ScreenShot/Upload_AppSettings_VSCodeExtension.png)
+
 * Using Portal, head over to the Overview page and click on "Configuration". This is where you will be adding your PlayFab Title ID and PlayFab Developer Secret Key to the application settings so your functions can fetch them through the environment once deployed.
     
-    ![Application Settings Configuration](.github/ScreenShot/config_app_settings.png)
+    ![Application Settings Configuration](.github/ScreenShot/Upload_AppSettings_Portal.png)
 
 **It is important to assign your PlayFab Developer Secret Key and Title ID on these settings or else the Functions in this app will not work.**
 

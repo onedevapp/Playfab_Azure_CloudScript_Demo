@@ -18,7 +18,10 @@ public class DemoScript : MonoBehaviour
 
         onUpdateLeaderBoardBtn.onClick.AddListener(() =>
         {
-            CallExecuteFunction(Constants.UPDATELEADERBOARD_FUNCTION_NAME, new Dictionary<string, object>());
+            var fParams = new Dictionary<string, object>();
+            fParams.Add("statName", "PlayerXP");
+            fParams.Add("gameResult", "Won");
+            CallExecuteFunction(Constants.UPDATELEADERBOARD_FUNCTION_NAME, fParams);
         });
     }
 
